@@ -12,6 +12,8 @@ with
             , unitpricediscount as vr_desconto
             -- origem
             , 'sales' as nm_origem
+            -- datas
+            , date(modifieddate) as dt_modificacao
         from {{ source('sales','salesorderdetail')}}
     )
 

@@ -4,6 +4,8 @@ with
             -- ids
             creditcardid as id_cartao_credito
             , businessentityid as id_entidade_negocio
+            -- datas
+            , date(modifieddate) as dt_modificacao
         from{{ source('sales','personcreditcard')}}
     )
 

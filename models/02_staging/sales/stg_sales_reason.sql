@@ -6,6 +6,8 @@ with
             -- nome e categoria/tipo motivo
             , name as nm_motivo
             , reasontype as tp_motivo
+            -- datas
+            , date(modifieddate) as dt_modificacao
         from{{ source('sales','salesreason')}}
     )
 

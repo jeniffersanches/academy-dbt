@@ -20,6 +20,8 @@ with
             -- valores
             , standardcost as vr_preco_padrao
             , listprice as vr_venda_produto
+            -- datas
+            , date(modifieddate) as dt_modificacao
         from{{ source('production','product')}}
     )
 

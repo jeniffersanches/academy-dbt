@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: dim_regiao
+    description: "Esta tabela reune informações sobre endereços, cidades e país/região."
+    columns:
+      - name: sk_regiao
+        description: "Chave SK gerada para identificador único da tabela com base nas colunas id_endereco, endereco e cidade."
+        tests:
+          - unique
+          - not_null
+      - name: id_endereco
+        description: "Chave única do endereço, original da tabela."
+      - name: id_estado
+        description: "Número de identificação exclusivo do estado ou província."
+      - name: endereco
+        description: "Endereço do cliente."
+      - name: cidade
+        description: "Nome da cidade do cliente."
+      - name: id_territorio
+        description: "ID do território em que o estado ou província está localizado."
+      - name: cd_estado
+        description: "Código padrão de estado ou província ISO."
+      - name: cd_pais
+        description: "Código padrão ISO para países e regiões."
+      - name: nm_estado
+        description: "Nome do estado do cliente."
+      - name: nm_pais
+        description: "País do cliente."
+      

@@ -11,6 +11,8 @@ with
             , IFNULL(CONCAT(firstname, ' '), '') || IFNULL(CONCAT(middlename, ' '), '') || lastname as nm_completo
             -- outros
             , emailpromotion
+            -- datas
+            , date(modifieddate) as dt_modificacao
         from{{ source('person','person')}}
     )
 

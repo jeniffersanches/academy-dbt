@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: dim_cliente
+    description: "Esta tabela reune informações sobre os clientes. Vem das fontes de src_sales e scr_person."
+    columns:
+      - name: sk_cliente
+        description: "Chave SK gerada para identificador único da tabela com base nas colunas id_cliente, nm_pessoa."
+        tests:
+          - unique
+          - not_null
+      - name: id_cliente
+        description: "Chave única do cliente, original da tabela."
+      - name: tipo_pessoa
+        description: >
+          "Tipo principal de pessoa: Contato da loja, Pessoa Físia (varejo), Vendedor, Funcionário (não vendas), Contato do fornecedor ou Contato geral."
+      - name: nm_pessoa
+        description: "Primeiro nome do cliente."
+      - name: nm_meio
+        description: "Nome do meio do cliente, caso haja." 
+      - name: nm_ultimo
+        description: "último nome do cliente." 
+      - name: nm_completo
+        description: "Nome completo do cliente."               
+      - name: emailpromotion
+        description: >
+          "Flag que indica: 0 = O contato não deseja receber promoções por e-mail, 1 = O contato deseja receber promoções por e-mail da AdventureWorks, 
+          2 = O contato deseja receber promoções por e-mail da AdventureWorks e de parceiros selecionados."
+      - name: email
+        description: "Email do cliente."

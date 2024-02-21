@@ -5,6 +5,8 @@ with
             countryregioncode as cd_pais
             -- nomes
             , name as nm_pais
+            -- datas
+            , date(modifieddate) as dt_modificacao
         from{{ source('person','countryregion')}}
     )
 

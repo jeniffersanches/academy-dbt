@@ -6,6 +6,8 @@ with
             , productcategoryid as id_categoria_produto
             -- nomes
             , name as nm_subcategoria_produto
+            -- datas
+            , date(modifieddate) as dt_modificacao
         from{{ source('production','productsubcategory')}}
     )
 

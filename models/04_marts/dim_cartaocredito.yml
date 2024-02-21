@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: dim_cartaocredito
+    description: "Esta tabela reune informações sobre os dados de cartão dos clientes. Vem da fonte src_sales."
+    columns:
+      - name: sk_cartaocredito
+        description: "Chave SK gerada para identificador único da tabela com base nas colunas id_cartao_credito e nm_cartao_credito."
+        tests:
+          - unique
+          - not_null
+      - name: id_cartao_credito
+        description: "Chave única do cartão de crédito, original da tabela."
+        tests:
+          - not_null
+      - name: nm_cartao_credito
+        description: "Nome do cartão de crédito, podendo ser Vista, Distinguish, SuperiorCard ou ColonialVoice."
+        tests:
+          - not_null
+      - name: num_cartao
+        description: "Número do cartão de crédito."
+      - name: mes_expiracao
+        description: "Mês de expiração do cartão de crédito." 
+      - name: ano_expiracao
+        description: "Ano de expiração do cartão de crédito." 
+      - name: dt_modificacao
+        description: "Data em que o registro foi modificado."               

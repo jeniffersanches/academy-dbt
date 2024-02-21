@@ -4,6 +4,8 @@ with
             -- ids
             salesorderid as id_pedido
             , salesreasonid as id_motivo_venda
+            -- datas
+            , date(modifieddate) as dt_modificacao
         from{{ source('sales','salesorderheadersalesreason')}}
     )
 

@@ -7,6 +7,8 @@ with
             -- outros
             , addressline1 as endereco
             , city as cidade
+            -- datas
+            , date(modifieddate) as dt_modificacao
         from{{ source('person','address')}}
     )
 

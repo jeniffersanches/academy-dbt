@@ -6,6 +6,8 @@ with
             , emailaddressid as id_endereco_email
             -- outros
             , cast(emailaddress.emailaddress as string)  as email
+            -- datas
+            , date(modifieddate) as dt_modificacao
         from{{ source('person','emailaddress')}}
     )
 

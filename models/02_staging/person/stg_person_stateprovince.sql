@@ -3,12 +3,14 @@ with
         select
             -- ids
             stateprovinceid as id_estado
+            , territoryid as id_territorio
             -- códigos
             , stateprovincecode as cd_estado
             , countryregioncode as cd_pais
             -- nomes
             , name as nm_estado
-            , territoryid as id_territorio
+            -- datas
+            , date(modifieddate) as dt_modificacao
         from{{ source('person','stateprovince')}}
     )
 

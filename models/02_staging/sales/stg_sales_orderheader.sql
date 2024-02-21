@@ -13,6 +13,7 @@ with
             , date(orderdate) as dt_pedido
             , date(duedate) as dt_devida_entrega
             , date(shipdate) as dt_envio
+            , date(modifieddate) as dt_modificacao
             -- flags e outros
             , status as st_pedido
             , onlineorderflag as fl_pedido_online
