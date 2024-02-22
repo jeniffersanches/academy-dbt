@@ -40,6 +40,23 @@ with
         from{{ ref('stg_person_countryregion')}}
     )
 
+    , territorio as (
+        select 
+            -- ids
+            id_territorio
+            -- nomes
+            , nm_pais
+            , nm_continente
+            -- códigos
+            , cd_pais
+            -- valores
+            , vr_venda_ytd
+            , vr_venda_ano_passado
+            -- datas
+            , dt_modificacao
+        from{{ ref('stg_sales_territory')}} 
+    )
+
     , dados_regiao as (
         select
             endereco_pessoa.id_endereco
@@ -51,9 +68,14 @@ with
             , provincia_estado.cd_pais
             , provincia_estado.nm_estado
             , pais_regioes.nm_pais
+            , territorio.nm_continente
         from endereco_pessoa
-        left join provincia_estado on endereco_pessoa.id_estado = provincia_estado.id_estado
-        left join pais_regioes on provincia_estado.cd_pais = pais_regioes.cd_pais
+        left join provincia_estado 
+            on endereco_pessoa.id_estado = provincia_estado.id_estado
+        left join pais_regioes 
+            on provincia_estado.cd_pais = pais_regioes.cd_pais
+        left join territorio 
+            on provincia_estado.id_territorio = territorio.id_territorio
     )
 
     , final_cte_regiao as (

@@ -30,4 +30,5 @@ models:
         description: "Nome do estado do cliente."
       - name: nm_pais
         description: "País do cliente."
-      
+      - name: nm_continente
+        description: "Área geográfica à qual pertence o território de vendas."

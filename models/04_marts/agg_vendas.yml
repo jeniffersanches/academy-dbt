@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: agg_vendas
+    description: >
+      "Esta é uma tabela agregada de vendas por região e vendedor, durante os anos de maio de 2011 até 
+      julho de 2014."
+    columns: 
+      - name: nm_pais
+        description: "País de referência."
+      - name: nm_vendedor
+        description: "Nome completo do vendedor."
+      - name: id_vendedor
+        description: "Id do vendedor."
+      - name: total_vendas
+        description: "Total de vendas atribuídas ao vendedor entre maio de 2011 até julho de 2014."

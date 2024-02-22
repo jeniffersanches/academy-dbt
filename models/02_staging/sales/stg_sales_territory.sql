@@ -1,5 +1,5 @@
 with
-    vendas_territorio as(
+    territorio as(
         select
             -- ids
             territoryid as id_territorio
@@ -17,4 +17,4 @@ with
     )
 
 select *
-from vendas_territorio
+from territorio
