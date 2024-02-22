@@ -1,72 +1,75 @@
 version: 2
 
 models:
-  - name: fct_detalhes_vendas
+  - name: fct_vendas_item
     description: "Esta tabela reúne informações na maior granularidade, a nível de produto."
     columns:
-      - name: motivo_fk
-        description: "Chave estrangeira para a tabela de motivos de venda."
-        # tests: 
-          # - not_null
       - name: cliente_fk
         description: "Chave estrangeira para a tabela de cliente."
-        # tests:
+        tests:
+          - relationships:
+              to: ref('dim_cliente')
+              field: sk_cliente
+          - not_null    
       - name: vendedor_fk
         description: "Chave estrangeira para a tabela de vendedores."
-        # tests:
+        tests:
+          - relationships:
+              to: ref('dim_vendedor')
+              field: sk_vendedor
       - name: regiao_fk
         description: "Chave estrangeira para a tabela de regiões."
-        # tests:
+        tests:
+          - relationships:
+              to: ref('dim_regiao')
+              field: sk_regiao
       - name: cartao_credito_fk
         description: "Chave estrangeira para a tabela de cartão de crédito."
-        # tests:
+        tests:
+          - relationships:
+              to: ref('dim_cartaocredito')
+              field: sk_cartaocredito
       - name: data_fk
         description: "Chave estrangeira para a tabela de data/calendário."
-        # tests:
+        tests:
+          - relationships:
+              to: ref('dim_data')
+              field: sk_data
       - name: produto_fk
         description: "Chave estrangeira para a tabela de produtos."
-        # tests:
+        tests:
+          - relationships:
+              to: ref('dim_produto')
+              field: sk_produto
       - name: id_pedido
         description: "Identificador único do pedido."
-        # tests:
+        tests:
+          - not_null
       - name: dt_pedido
         description: "Data em que o pedido foi feito."
-        # tests:
       - name: dt_devida_entrega
         description: "Data em que o pedido é devido ao cliente."
-        # tests:
       - name: dt_envio
         description: "Data em que o pedido foi enviado ao cliente."
-        # tests:
       - name: dt_modificacao
         description: "Data de modificação do registro."
-        # tests:
       - name: st_pedido
         description: >
           "Status atual do pedido, podendo ser: 1 = Em processo; 2 = Aprovado; 3 = Pedido em espera; 
           4 = Rejeitado; 5 = Enviado; 6 = Cancelado "
-        # tests:
       - name: fl_pedido_online
         description: "Flag que indica se a compra foi feita online ou não. Sendo true = verdadeiro e false = falso."
-        # tests:
       - name: vr_subtotal_pedido
         description: "Subtotal de vendas. Calculado como SUM(SalesOrderDetail.LineTotal) para o SalesOrderID apropriado."
-        # tests:
       - name: vr_imposto_pedido
         description: "Valor do imposto para o pedido."
-        # tests:
       - name: vr_frete_pedido
         description: "Valor de frete para o pedido."
-        # tests:
       - name: vr_total_devido 
         description: "Total devido pelo cliente. Calculado como vr_subtotal + vr_imposto_pedido + vr_frete_pedido."
-        # tests:
       - name: vr_produto 
         description: "Preço de venda de um único produto."
-        # tests:
       - name: vr_desconto 
         description: "Valor do desconto."
-        # tests:
       - name: qt_encomendada_produto
         description: "Quantidade encomendada por produto."
-        # tests:

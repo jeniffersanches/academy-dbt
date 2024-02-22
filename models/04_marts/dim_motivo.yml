@@ -4,11 +4,11 @@ models:
   - name: dim_motivo
     description: "Tabela de consulta dos motivos de compra do cliente."
     columns:
-      - name: sk_motivo
-        description: "Chave SK gerada para identificador único da tabela com base nas colunas id_pedido e id_motivo_venda."
-        tests:
-          - unique
-          - not_null
+      # - name: sk_motivo
+      #   description: "Chave SK gerada para identificador único da tabela com base nas colunas id_pedido e id_motivo_venda."
+      #   tests:
+      #     - unique
+      #     - not_null
       - name: id_pedido
         description: "Chave única que serve para identificar os pedidos."
         tests:

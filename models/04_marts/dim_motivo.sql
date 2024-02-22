@@ -26,18 +26,27 @@ with
     , dados_motivo as (
         select
             cabecalho_motivos_venda.id_pedido
-            , cabecalho_motivos_venda.id_motivo_venda
+            -- , cabecalho_motivos_venda.id_motivo_venda
             , motivos_venda.nm_motivo
-            , motivos_venda.tp_motivo
+            -- , motivos_venda.tp_motivo
         from cabecalho_motivos_venda
-        left join motivos_venda on cabecalho_motivos_venda.id_motivo_venda = motivos_venda.id_motivo_venda
+        left join motivos_venda 
+            on cabecalho_motivos_venda.id_motivo_venda = motivos_venda.id_motivo_venda
+        -- group by
+        --     cabecalho_motivos_venda.id_pedido
+        --     , cabecalho_motivos_venda.id_motivo_venda
+        --     , motivos_venda.nm_motivo
     )
 
     , final_cte_motivo as (
         select 
-            {{ dbt_utils.generate_surrogate_key(['id_pedido', 'id_motivo_venda']) }} as sk_motivo
-            , *
+            -- {{ dbt_utils.generate_surrogate_key(['id_pedido', 'id_motivo_venda']) }} as sk_motivo
+            id_pedido
+            -- , id_motivo_venda
+            , string_agg(nm_motivo, ', ') as nm_motivo_agg
+            -- , tp_motivo_array as tp_motivo
         from dados_motivo
+        group by id_pedido
     )
 
 select *
