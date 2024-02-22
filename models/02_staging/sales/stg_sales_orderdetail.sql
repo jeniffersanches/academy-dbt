@@ -8,8 +8,9 @@ with
             -- quantidades
             , orderqty as qt_encomendada_produto
             -- valores
-            , unitprice as vr_produto
-            , unitpricediscount as vr_desconto
+            , ROUND(unitprice, 2) as vr_produto
+            , ROUND(unitpricediscount, 2) as vr_desconto
+            , ROUND(COALESCE((unitprice * (1.0 - COALESCE(unitpricediscount, 0.0)) * orderqty), 0.0), 2) as total_linha_produto
             -- origem
             , 'sales' as nm_origem
             -- datas

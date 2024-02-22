@@ -11,6 +11,9 @@ models:
           - not_null
       - name: id_endereco
         description: "Chave única do endereço, original da tabela."
+        tests:
+          - unique
+          - not_null
       - name: id_estado
         description: "Número de identificação exclusivo do estado ou província."
       - name: endereco

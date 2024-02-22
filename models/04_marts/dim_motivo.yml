@@ -11,6 +11,8 @@ models:
           - not_null
       - name: id_pedido
         description: "Chave única que serve para identificar os pedidos."
+        tests:
+          - not_null
       - name: id_motivo_venda
         description: "Chave única que serve para identificar os motivos de venda."
       - name: nm_motivo

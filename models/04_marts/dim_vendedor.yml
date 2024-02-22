@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: dim_vendedor
+    description: "Esta tabela reune informações sobre os vendedores."
+    columns:
+      - name: sk_vendedor
+        description: "Chave SK gerada para identificador único da tabela com base nas colunas id_entidade_negocio, e id_territorio."
+        tests:
+          - unique
+          - not_null
+      - name: id_entidade_negocio
+        description: "Chave para todos os clientes, fornecedores e funcionários."
+        tests:  
+          - unique
+      - name: id_territorio
+        description: "Território do vendedor."
+      - name: cargo
+        description: "Cargo do trabalho."
+      - name: nm_completo
+        description: "Nome do vendedor."
+        tests:
+          - unique

@@ -39,6 +39,7 @@ with
     , dados_cliente as (
         select 
             cliente.id_cliente
+            , pessoa.id_entidade_negocio
             , case
                 when pessoa.tp_pessoa = 'SC' then 'Contato Loja'
                 when pessoa.tp_pessoa = 'IN' then 'Pessoa Física'
@@ -60,7 +61,7 @@ with
 
     , final_cte_cliente as (
         select 
-            {{ dbt_utils.generate_surrogate_key(['id_cliente', 'nm_pessoa']) }} as sk_cliente
+            {{ dbt_utils.generate_surrogate_key(['id_cliente', 'id_entidade_negocio', 'nm_completo']) }} as sk_cliente
             , *
         from dados_cliente
     )

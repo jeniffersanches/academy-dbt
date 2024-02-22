@@ -5,10 +5,10 @@ with
         select 
             id_cartao_credito
             , nm_cartao_credito
-            , num_cartao
-            , mes_expiracao
-            , ano_expiracao
-            , dt_modificacao
+            -- , num_cartao
+            -- , mes_expiracao
+            -- , ano_expiracao
+            -- , dt_modificacao
         from {{ref('stg_sales_creditcard')}}
     )
 

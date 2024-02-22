@@ -18,10 +18,10 @@ with
             , status as st_pedido
             , onlineorderflag as fl_pedido_online
             -- valores
-            , subtotal as vr_subtotal
-            , taxamt as vr_imposto
-            , freight as vr_frete
-            , totaldue as vr_total_devido
+            , ROUND(subtotal, 2) as vr_subtotal_pedido
+            , ROUND(taxamt, 2) as vr_imposto_pedido
+            , ROUND(freight, 2) as vr_frete_pedido
+            , ROUND(totaldue, 2) as vr_total_devido
             -- origem
             ,  'sales' as nm_origem
         from {{ source('sales', 'salesorderheader')}}

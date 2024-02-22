@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: dim_produto
+    description: "Tabela com informações sobre produtos."
+    columns:
+      - name: sk_produto
+        description: "Chave SK gerada para identificador único da tabela com base nas colunas id_produto e cd_pedido."
+        tests:
+          - unique
+          - not_null
+      - name: id_produto
+        description: "Chave primária para registros de produtos."
+        tests:
+          - unique
+          - not_null
+      - name: id_subcategoria_produto
+        description: "Identificador da subcategoria do produto. Chave estrangeira para a tabela de subcategoria."
+      - name: nm_produto
+        description: "Nome do produto."
+      - name: cd_produto
+        description: "Número identificador único do produto."
+        tests:
+          - unique
+      - name: cor_produto
+        description: "Cor do produto."
+      - name: estilo_produto
+        description: "Estilo do produto, podendo ser W = Feminino, M = Masculino e U = Universal."
+      - name: id_categoria_produto
+        description: "Identificador da categoria do produto. Chave estrangeira para a tabela de categoria."
+      - name: nm_subcategoria_produto
+        description: "Descrição da categoria."

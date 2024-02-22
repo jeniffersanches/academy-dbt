@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: dim_data
+    description: "Esta é uma tabela criada através da macro do dbt para calendário."
+    columns:
+      - name: sk_data
+        description: "Chave SK gerada para identificador único da tabela com base nas colunas date_day e day_of_week_name."
+        tests:
+          - unique
+          - not_null

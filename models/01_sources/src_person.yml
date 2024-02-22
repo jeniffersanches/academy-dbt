@@ -15,5 +15,3 @@ sources:
         description: "State and province lookup table."
       - name: countryregion
         description: "Lookup table containing the ISO standard codes for countries and regions."
-      - name: businessentity
-        description: "Source of the ID that connects vendors, customers, and employees with address and contact information."
