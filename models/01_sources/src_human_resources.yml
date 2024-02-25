@@ -5,4 +5,11 @@ sources:
     schema: sap_adw
     tables:
       - name: employee
-        description: "Employee information such as salary, department, and title."
+        description: "Informações dos funcionários, como salário, departamento e cargo."
+        columns:
+          - name: businessentityid
+            description: "Chave primária da tabela."
+          - name: loginid
+            description: "Login do funcionário."
+          - name: jobtitle
+            description: "Cargo do funcionário."

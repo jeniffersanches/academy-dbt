@@ -1,0 +1,33 @@
+version: 2
+
+models:
+  - name: agr_vendas
+    description: >
+      "Esta é uma tabela agregada de vendas por região e vendedor na granularidade de mês/ano. 
+      Possui registros de maio de 2011 até julho de 2014."
+    columns: 
+      - name: territorio_fk
+        description: >
+          "Chave estrangeira para a tabela intermediária de território, que diz respeito somente às lojas."
+        tests:  
+          - not_null
+      - name: vendedor_fk
+        description: "Chave estrangeira para a tabela de vendedor."
+        tests: 
+          - not_null
+      - name: data_fk
+        description: "Chave estrangeira para a tabela de data."
+        tests:
+          - not_null
+      - name: mes
+        description: "Mês de referência."
+      - name: nm_mes_abrv
+        description: "Nome do mês abreviado."
+      - name: ano
+        description: "Ano de referência."
+      - name: nm_pais
+        description: "Nome do país de referência."
+      - name: nm_vendedor
+        description: "Nome completo do vendedor."
+      - name: total_vendas
+        description: "Total de vendas atribuídas ao vendedor num recorte de mês, ano e região."

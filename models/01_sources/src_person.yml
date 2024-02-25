@@ -6,12 +6,73 @@ sources:
     tables:
       - name: person
         description: >
-          "Human beings involved with AdventureWorks: employees, customer contacts, and vendor contacts."
+          "Pessoas envolvidas com AdventureWorks: funcionários, contatos de clientes e contatos de 
+          fornecedores."
+        columns:
+          - name: businessentityid
+            description: "Chave para todos os clientes, fornecedores e funcionários."
+          - name: persontype
+            description: >
+              "Tipo principal de pessoa: Contato da loja, Pessoa Física (varejo), Vendedor, Funcionário 
+              (não vendas), Contato do fornecedor ou Contato geral."
+          - name: firstname
+            description: "Primeiro nome do cliente."
+          - name: middlename
+            description: "Nome do meio do cliente, caso haja."
+          - name: lastname
+            description: "último nome do cliente."
+          - name: emailpromotion
+            description: >
+              "Flag que indica: 0 = O contato não deseja receber promoções por e-mail, 1 = O contato deseja receber promoções por e-mail da AdventureWorks, 
+              2 = O contato deseja receber promoções por e-mail da AdventureWorks e de parceiros selecionados."
+          - name: modifieddate
+            description: "Data e hora em que o registro foi atualizado pela última vez."
       - name: emailaddress
-        description: "Where to send a person email."
+        description: "Tabela com informações sobre e-mail de uma pessoa."
+        columns:
+          - name: businessentityid
+            description: "Chave para todos os clientes, fornecedores e funcionários."
+          - name: emailaddressid
+            description: "Chave primária. ID deste endereço de e-mail."
+          - name: emailaddress
+            description: "Endereço de e-mail da pessoa."
+          - name: modifieddate
+            description: "Data e hora em que o registro foi atualizado pela última vez."
       - name: address
-        description: "Street address information for customers, employees, and vendors."
+        description: "Informações de endereço de clientes, funcionários e fornecedores."
+        columns:
+          - name: addressid
+            description: "Chave primária da tabela address."
+          - name: stateprovinceid
+            description: >
+              "Número de identificação exclusivo do estado ou província. 
+              Chave estrangeira para a tabela StateProvince."
+          - name: addressline1
+            description: "Endereço da pessoa."
+          - name: city
+            description: "Nome da cidade da pessoa."
+          - name: modifieddate
+            description: "Data e hora em que o registro foi atualizado pela última vez."
       - name: stateprovince
-        description: "State and province lookup table."
+        description: "Tabela de consulta de estado e província."
+        columns:
+          - name: stateprovinceid
+            description: "Chave primária para registros StateProvince."
+          - name: stateprovincecode
+            description: "Código padrão de estado ou província ISO."
+          - name: countryregioncode
+            description: >
+              "Código padrão de país ou região ISO. Chave estrangeira para CountryRegion."
+          - name: name
+            description: "Descrição do estado ou província."
+          - name: modifieddate
+            description: "Data e hora em que o registro foi atualizado pela última vez."
       - name: countryregion
-        description: "Lookup table containing the ISO standard codes for countries and regions."
+        description: "Tabela de consulta contendo os códigos padrão ISO para países e regiões."
+        columns:
+          - name: countryregioncode
+            description: "Código padrão ISO para países e regiões."
+          - name: name
+            description: "Nome do país ou região."
+          - name: modifieddate
+            description: "Data e hora em que o registro foi atualizado pela última vez."

@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: int_sales_territory
+    description: "Tabela contendo os territórios/países de referência para as lojas."
+    columns: 
+      - name: sk_territorio
+        description: >
+          "Chave surrogate gerada pela combinação das colunas id_territorio, nm_pais e nm_continente."
+        tests:
+          - unique
+          - not_null
+      - name: id_territorio
+        description: "Chave primária original da tabela"
+        tests:
+          - not_null
+      - name: nm_pais
+        description: "Nome do país da loja."
+      - name: nm_continente
+        description: "Área geográfica à qual pertence o território de vendas."
+      - name: cd_pais
+        description: "Código padrão ISO para países e regiões."
+      - name: vr_venda_ytd
+        description: "Vendas no território no acumulado do ano."
+      - name: vr_venda_ano_passado
+        description: "Vendas no território no ano anterior."
+      - name: dt_modificacao
+        description: "Data e hora em que o registro foi atualizado pela última vez."

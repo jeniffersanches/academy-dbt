@@ -20,7 +20,8 @@ models:
           - unique
       - name: tipo_pessoa
         description: >
-          "Tipo principal de pessoa: Contato da loja, Pessoa Física (varejo), Vendedor, Funcionário (não vendas), Contato do fornecedor ou Contato geral."
+          "Tipo principal de pessoa: Contato da loja, Pessoa Física (varejo), Vendedor, Funcionário 
+          (não vendas), Contato do fornecedor ou Contato geral."
       - name: nm_pessoa
         description: "Primeiro nome do cliente."
       - name: nm_meio

@@ -2,7 +2,8 @@ version: 2
 
 models:
   - name: dim_regiao
-    description: "Esta tabela reune informações sobre endereços, cidades e país/região."
+    description: >
+      "Esta tabela reune informações sobre endereços, cidades e país/região relacionados aos clientes."
     columns:
       - name: sk_regiao
         description: "Chave SK gerada para identificador único da tabela com base nas colunas id_endereco, endereco e cidade."
