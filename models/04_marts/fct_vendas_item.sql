@@ -1,5 +1,5 @@
 {{ config(materialized= 'table') }}
-
+    
 with
     final_cte_cartao_credito as (
         select
@@ -86,7 +86,10 @@ with
                 when pedidos.st_pedido = 5 then 'Enviado'
                 when pedidos.st_pedido = 6 then 'Cancelado'
             end as status_pedido
-            , pedidos.fl_pedido_online
+            , case 
+                when pedidos.fl_pedido_online = true then 'Online'
+                when pedidos.fl_pedido_online = false then 'Físico'
+            end as canal_venda
             -- valores
             , pedidos.vr_subtotal_pedido
             , pedidos.vr_imposto_pedido
@@ -125,7 +128,7 @@ with
             -- flags e status
             , pedidos_item_com_sk.nm_motivo_final
             , pedidos_com_sk.status_pedido
-            , pedidos_com_sk.fl_pedido_online
+            , pedidos_com_sk.canal_venda
             -- valores
             , pedidos_com_sk.vr_subtotal_pedido
             , pedidos_com_sk.vr_imposto_pedido

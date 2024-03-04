@@ -11,7 +11,12 @@ with
             , dim_data.year_number as ano
             , territorio.nm_pais
             , dim_vendedor.nm_completo as nm_vendedor
-            , ROUND(SUM(vendas.vr_subtotal_pedido + vendas.vr_imposto_pedido), 2) as total_vendas
+            , case 
+                when vendas.fl_pedido_online = true then 'Online'
+                when vendas.fl_pedido_online = false then 'Físico'
+            end as canal_venda
+            -- , ROUND(SUM(vendas.vr_subtotal_pedido + vendas.vr_imposto_pedido), 2) as total_vendas
+            , vendas.vr_total_devido 
         from 
             {{ ref('stg_sales_orderheader') }} vendas
         left join {{ ref('int_sales_territory') }} territorio
@@ -20,8 +25,8 @@ with
             on dim_vendedor.id_entidade_negocio = vendas.id_vendedor
         left join {{ref('dim_data')}} dim_data
             on dim_data.date_day = vendas.dt_pedido
-        where   
-            vendas.fl_pedido_online = false
+        -- where   
+        --     vendas.fl_pedido_online = false
         group by
             territorio.sk_territorio
             , dim_vendedor.sk_vendedor
@@ -31,6 +36,8 @@ with
             , dim_data.year_number
             , territorio.nm_pais
             , dim_vendedor.nm_completo
+            , vendas.fl_pedido_online
+            , vendas.vr_total_devido
         order by
             dim_data.year_number
             , dim_data.month_of_year 

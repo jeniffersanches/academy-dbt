@@ -5,8 +5,57 @@ sources:
     schema: sap_adw
     tables:
       - name: product
-        description: "Products sold or used in the manfacturing of sold products."
+        description: "Produtos vendidos ou utilizados na fabricação de produtos vendidos."
+        columns:
+          - name: productid
+            description: "Chave primária para a tabela de produtos."
+          - name: productsubcategoryid
+            description: >
+              "O produto é membro desta subcategoria de produto. 
+              Chave estrangeira para ProductSubCategory.ProductSubCategoryID."
+          - name: name
+            description: "Nome do produto."
+          - name: productnumber
+            description: "Número de identificação exclusivo do produto."
+          - name: makeflag
+            description: "0 = O produto é adquirido, 1 = O produto é fabricado internamente."
+          - name: color
+            description: "Cor do produto."
+          - name: safetystocklevel
+            description: "Quantidade mínima de estoque."
+          - name: reorderpoint
+            description: "Nível de estoque que aciona um pedido de compra ou ordem de serviço."
+          - name: size
+            description: "Tamanho do produto."
+          - name: productline
+            description: "R = Estrada, M = Montanha, T = Touring, S = Padrão"
+          - name: style
+            description: "W = Feminino, M = Masculino, U = Universal"
+          - name: standardcost
+            description: "Custo padrão do produto."
+          - name: listprice
+            description: "Preço de venda."
+          - name: modifieddate
+            description: "Data e hora em que o registro foi atualizado pela última vez."
       - name: productsubcategory
-        description: "Product subcategories. See ProductCategory table."
+        description: "Subcategorias de produtos. Consulte a tabela ProductCategory."
+        columns:
+          - name: productsubcategoryid
+            description: "Chave primária para registros ProductSubcategory."
+          - name: productcategoryid
+            description: >
+              "Número de identificação da categoria do produto. 
+              Chave estrangeira para ProductCategory.ProductCategoryID."
+          - name: name
+            description: "Descrição da subcategoria."
+          - name: modifieddate
+            description: "Data e hora em que o registro foi atualizado pela última vez."
       - name: productcategory
-        description: "High-level product categorization."
+        description: "Categorização de produtos (alto nível)."
+        columns:
+          - name: productcategoryid
+            description: "Chave primária para registros ProductCategory."
+          - name: name
+            description: "Descrição da categoria."
+          - name: modifieddate
+            description: "Data e hora em que o registro foi atualizado pela última vez."
