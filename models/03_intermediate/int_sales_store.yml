@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: int_sales_store
+    description: "Tabela das lojas da Adventure Works"
+    columns: 
+      - name: sk_loja
+        description: >
+          "Chave surrogate gerada pela combinação das colunas id_entidade_negocio, nm_loja e id_vendedor."
+        tests:
+          - unique
+          - not_null
+      - name: id_entidade_negocio
+        description: "Chave para todos os clientes, fornecedores e funcionários."
+      - name: nm_loja
+        description: "Nome da loja."
+        tests:
+          - unique
+      - name: id_vendedor
+        description: "ID do vendedor atribuído ao cliente."
+      - name: dt_modificacao
+        description: "Data e hora em que o registro foi atualizado pela última vez."

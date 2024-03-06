@@ -72,6 +72,7 @@ with
             , pedidos.id_endereco_entrega
             , dime_credito.sk_cartaocredito as cartao_credito_fk
             , dime_data.sk_data as data_fk
+            , pedidos.id_territorio
             -- datas
             , pedidos.dt_pedido
             , pedidos.dt_devida_entrega
@@ -119,6 +120,7 @@ with
             , pedidos_com_sk.cartao_credito_fk
             , pedidos_com_sk.data_fk
             , pedidos_item_com_sk.produto_fk
+            , pedidos_com_sk.id_territorio
             , pedidos_item_com_sk.id_pedido
             -- datas
             , pedidos_com_sk.dt_pedido

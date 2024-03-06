@@ -40,6 +40,7 @@ with
         select 
             cliente.id_cliente
             , pessoa.id_entidade_negocio
+            , cliente.id_loja
             , case
                 when pessoa.tp_pessoa = 'SC' then 'Contato Loja'
                 when pessoa.tp_pessoa = 'IN' then 'Pessoa Física'

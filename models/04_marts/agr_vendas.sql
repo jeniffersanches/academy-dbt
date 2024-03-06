@@ -15,7 +15,6 @@ with
                 when vendas.fl_pedido_online = true then 'Online'
                 when vendas.fl_pedido_online = false then 'Físico'
             end as canal_venda
-            -- , ROUND(SUM(vendas.vr_subtotal_pedido + vendas.vr_imposto_pedido), 2) as total_vendas
             , vendas.vr_total_devido 
         from 
             {{ ref('stg_sales_orderheader') }} vendas
@@ -25,8 +24,6 @@ with
             on dim_vendedor.id_entidade_negocio = vendas.id_vendedor
         left join {{ref('dim_data')}} dim_data
             on dim_data.date_day = vendas.dt_pedido
-        -- where   
-        --     vendas.fl_pedido_online = false
         group by
             territorio.sk_territorio
             , dim_vendedor.sk_vendedor

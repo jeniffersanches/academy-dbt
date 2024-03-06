@@ -57,8 +57,8 @@ models:
         description: >
           "Status atual do pedido, podendo ser: 1 = Em processo; 2 = Aprovado; 3 = Pedido em espera; 
           4 = Rejeitado; 5 = Enviado; 6 = Cancelado "
-      - name: fl_pedido_online
-        description: "Flag que indica se a compra foi feita online ou não. Sendo true = verdadeiro e false = falso."
+      - name: canal_venda
+        description: "Indica por qual canal a venda foi feita, podendo ser Físico ou Online."
       - name: vr_subtotal_pedido
         description: "Subtotal de vendas. Calculado como SUM(SalesOrderDetail.LineTotal) para o SalesOrderID apropriado."
       - name: vr_imposto_pedido

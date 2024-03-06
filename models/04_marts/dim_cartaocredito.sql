@@ -23,7 +23,6 @@ with
             cartao_credito.id_cartao_credito
             , pessoa_cartao_credito.id_entidade_negocio
             , COALESCE(cartao_credito.nm_cartao_credito, 'Não informado') as nm_cartao_credito
-            -- , ifnull(cartao_credito.nm_cartao_credito, 'Não indicado') as nm_cartao
         from cartao_credito
         left join pessoa_cartao_credito
             on cartao_credito.id_cartao_credito = pessoa_cartao_credito.id_cartao_credito
